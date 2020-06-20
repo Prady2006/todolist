@@ -15,7 +15,7 @@ body {
     color: #000;
 }
 .typed-cursor {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: hotpink;
 }
 .hidden {
@@ -26,14 +26,85 @@ body {
     align-items: center;
     flex-direction: row;
 }
-.main {
+.main  {
     height: 100%;
     width: 100%;
     display: flex;
+    visibility: hidden;
+    /* background-color: white; */
 }
 
+.a > div {
+    min-height: 50px;
+    height: auto;
+    border-bottom: 1px solid;
+    width: 95%;
+    margin-left: 10px;
+}
 .gutter {
+    position: relative;
+    top:5%;
     cursor: s-resize;
-    height:100%;
-    background: red;
-  }
+    height:90%;
+    background: black;
+}
+
+.modal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    /* z-index: 1; */
+    display: flex;
+    font-size: 2.5rem;
+    justify-content: center;
+    align-items: center;
+}
+#heading {
+    display: flex;
+    align-items: end;
+    padding-bottom: 5px;
+    font-size: 1.5rem;
+    justify-content: space-between;
+}
+#heading > span {
+    position: relative;
+    font-weight: 500;
+    left: 10px;
+    letter-spacing: 4px;
+    font-style: Helvetica,sans-serif;
+}
+
+/* Styling toggle button  */
+button {
+    background-color: black;
+    color: white;
+    padding:3px;
+}
+.dark {
+    background-color: black;
+    color: white;
+}
+
+ /* styling left side window individual divs  */
+#description-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+.m7 {
+    margin-top: 7px;
+    font-weight: 400;
+}
+
+#description , #due-date{
+    border: none;
+    margin: 7px 2px 2px 2px;
+    background-color: transparent;
+    font-weight: 400;
+}
+
+#due-date-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
