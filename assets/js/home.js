@@ -1,5 +1,2 @@
-import Split from 'split.js'
-// var Split = require('split.js');
+Split(['.a','.b']);
 
-module.exports = Split(['.a','.b']);
-console.log('home.js loaded');
