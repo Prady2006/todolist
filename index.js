@@ -11,6 +11,7 @@ app.use('/',require('./routes/index'));
 
 // using static files
 app.use(express.static('assets'));
+// app.use(express.static('./node_modules/split.js'));
 
 app.listen(port , function(error){
     if(error){
