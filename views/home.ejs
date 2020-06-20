@@ -3,13 +3,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <title>Document</title>
     
 </head>
-<body>
+<body class="center" onload="preloader();">
     
-    <div id="type">
-        <h1 id="typed-strings"><%= load %></h1>
+    <h1 id="type"></h1>
+    
+    <script>
+    var options = {
+    strings: ['Loading'],
+    typeSpeed: 40,
+    backSpeed:100,
+    loop: true ,
+    loopCount: Infinity
+    };
+
+    var typed = new Typed('#type', options);
+    </script>
+
+    <!-- <h1>Page loaded</h1> -->
+
+    <script>
+        function preloader() {
+            let delay = setTimeout(()=>{
+                let type = document.getElementsByClassName('typed-cursor')[0] ;
+                type.parentNode.removeChild(type);
+                let h1Div = document.getElementById('type');
+                h1Div.parentNode.removeChild(h1Div);
+                let removeHidden = document.getElementsByClassName('hidden')[0];
+                removeHidden.classList.toggle('hidden');
+                document.body.classList.toggle('center');
+            },3000);
+            
+        }
+    </script>
+    <div class="hidden main">
+        <div class="a"></div>
+        <div class="b"></div>
     </div>
     <script src="/js/home.js" type="module"></script>
 </body>
