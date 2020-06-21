@@ -133,7 +133,16 @@ function getFormData(){
     }
     console.log(JSON.stringify(obj));
     xhr.onload = function(e){
-        <% alert(e.currentTarget.res) %>;
+        alert(e.currentTarget.response);
+        let obj = e.currentTarget.response; 
+        let html = `<div class="items">
+        <span><input type="checkbox" name="task" value="${obj}" ></span>
+        <div class="description">${obj.description}</div>
+        <div class="duedate">${obj.dueDate}</div>
+        <div class="category">${obj.description}</div>
+    </div>`
+        let div = document.querySelector('.b');
+        div.insertAdjacentHTML("beforeend" , html);
     }
     xhr.open('POST','/create-item',true);
     xhr.setRequestHeader('Content-type','application/json');
