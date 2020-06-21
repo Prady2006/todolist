@@ -133,15 +133,13 @@ function getFormData(){
     }
     console.log(JSON.stringify(obj));
     xhr.onload = function(e){
-        alert(e.currentTarget.response);
-        let obj = e.currentTarget.response; 
+        let obj = JSON.parse(e.currentTarget.response);
         let html = `<div class="items">
         <span><input type="checkbox" name="task" value="${obj.description}" ></span>
         <div class="description">${obj.description}</div>
         <div class="duedate">${obj.dueDate}</div>
         <div class="category">${obj.category}</div>
     </div>`
-        // let html = `<p>hello</p>`;
         let div = document.querySelector('.b');
         div.insertAdjacentHTML("beforeend" , html);
     }
