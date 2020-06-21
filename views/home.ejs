@@ -62,7 +62,7 @@
                 <span class="m7">Category:</span>
                 <div class="custom-select" style="width:200px;">
                     <select name="category" id="category">
-                      <option value="0">Select car:</option>
+                      <option value="0">Category:</option>
                       <option value="1">Personal</option>
                       <option value="2">School</option>
                       <option value="3">Office</option>
@@ -74,8 +74,19 @@
                 <button id="delete" onclick="sendOptions();" type="submit"><i class="far fa-trash-alt"></i>Delete</button>
             </div>
         </div>
-        <div class="b ">
-
+        <div class="b">
+            <div id="b-heading">
+                <span>Tasks</span>
+            </div>
+            <% for ( let [i,v] of tasks.entries() ) { %>
+                <div class="items">
+                    <span><input type="checkbox" name="task" value="<%= i %>" ></span>
+                    <% console.log(v) %>
+                    <div class="description"><%= v.description %></div>
+                    <div class="duedate"><%= v.dueDate %></div>
+                    <div class="category"><%= v.category %></div>
+                </div>
+            <% } %>
         </div>
     </div>
 

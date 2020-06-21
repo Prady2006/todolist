@@ -127,9 +127,9 @@ document.addEventListener("click", closeAllSelect);
 function getFormData(){
     var xhr = new XMLHttpRequest();
     obj = {
-        'category': document.getElementById('category').value ,
-        'dueDate': document.getElementById('due-date').value,
-        'description': document.getElementById('description').value
+        category : document.getElementById('category').value ,
+        dueDate: document.getElementById('due-date').value,
+        description: document.getElementById('description').value
     }
     console.log(JSON.stringify(obj));
     xhr.onload = function(e){
