@@ -25,8 +25,11 @@ function toggle(){
         // console.log('not dark theme ');
     } 
     document.querySelector('.gutter').style.backgroundColor = bgcolor ;
+    // console.log(bgcolor);
     document.querySelector('button').style.backgroundColor = bgcolor;
     document.querySelector('button').style.color = color;
+    document.getElementById('add').style.color = bgcolor;
+    document.getElementById('delete').style.color = bgcolor;
     document.getElementById('description').style.caretColor = bgcolor;
     document.getElementById('description').style.color = bgcolor;
     document.getElementById('due-date').style.caretColor = bgcolor;
@@ -117,3 +120,22 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+
+// sending form data via ajax 
+
+function getFormData(){
+    var xhr = new XMLHttpRequest();
+    obj = {
+        'category': document.getElementById('category').value ,
+        'dueDate': document.getElementById('due-date').value,
+        'description': document.getElementById('description').value
+    }
+    console.log(JSON.stringify(obj));
+    xhr.onload = function(e){
+        console.log(e.currentTarget.status)
+    }
+    xhr.open('POST','/create-item',true);
+    xhr.setRequestHeader('Content-type','application/json');
+    xhr.send(JSON.stringify(obj));
+}

@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
-    
+    <script src="https://kit.fontawesome.com/6f96630cbb.js" crossorigin="anonymous"></script>
 </head>
 <body class="center" onload="preloader();">
     
@@ -61,13 +61,17 @@
             <div id="options">
                 <span class="m7">Category:</span>
                 <div class="custom-select" style="width:200px;">
-                    <select>
+                    <select name="category" id="category">
                       <option value="0">Select car:</option>
-                      <option value="1">Audi</option>
-                      <option value="2">BMW</option>
-                      <option value="3">Citroen</option>
+                      <option value="1">Personal</option>
+                      <option value="2">School</option>
+                      <option value="3">Office</option>
                     </select>
                   </div>
+            </div>
+            <div id="options-container">
+                <button id="add" onclick="getFormData();" type="submit"><i class="fas fa-plus"></i>Add</button>
+                <button id="delete" onclick="sendOptions();" type="submit"><i class="far fa-trash-alt"></i>Delete</button>
             </div>
         </div>
         <div class="b ">
