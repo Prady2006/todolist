@@ -133,7 +133,7 @@ function getFormData(){
     }
     console.log(JSON.stringify(obj));
     xhr.onload = function(e){
-        console.log(e.currentTarget.status)
+        <% alert(e.currentTarget.res) %>;
     }
     xhr.open('POST','/create-item',true);
     xhr.setRequestHeader('Content-type','application/json');

@@ -13,11 +13,11 @@ tasks = [
 module.exports.createTodo = function(req,res){
     console.log("data posted");
     // console.log(req.body);
-    tasks.push({
+    obj = {
         category: cat[req.body.category],
         dueDate: req.body.dueDate,
         description: req.body.description
-    });
-    // console.log(tasks);
-    res.redirect('/');
+    };
+    tasks.push(obj);
+    res.send(obj);
 };
