@@ -131,7 +131,7 @@ function getFormData(){
         dueDate: document.getElementById('due-date').value,
         description: document.getElementById('description').value
     }
-    console.log(JSON.stringify(obj));
+    // console.log(JSON.stringify(obj));
     xhr.onload = function(e){
         let obj = JSON.parse(e.currentTarget.response);
         let html = `<div class="items">
@@ -142,6 +142,10 @@ function getFormData(){
     </div>`
         let div = document.querySelector('.b');
         div.insertAdjacentHTML("beforeend" , html);
+    }
+    if (obj.category == "" || obj.dueDate == ""){
+      alert('Fill properly ');
+      return ;
     }
     xhr.open('POST','/create-item',true);
     xhr.setRequestHeader('Content-type','application/json');

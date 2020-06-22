@@ -9,6 +9,7 @@ body {
     width: 100vw;
     height: 100vh;
     flex-direction: column;
+    overflow-y: hidden;
 }
 #type {
     /* background-color: black; */
@@ -196,9 +197,11 @@ button {
 .b {
     display: flex;
     flex-direction: column;
+    height: auto;
+    overflow-y: scroll;
 }
 .b > div {
-    height: 50px;
+    min-height: 50px ;
     width: 70%;
     margin-left: 10%;
     box-shadow: 3px 3px 3px rgb(129, 129, 129);
