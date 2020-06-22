@@ -13,4 +13,6 @@ router.get('/',homeController.home);
 
 router.post('/create-item',homeController.createTodo);
 
+router.delete('/',homeController.deleteTodo);
+
 module.exports = router; 

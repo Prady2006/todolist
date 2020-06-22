@@ -134,8 +134,8 @@ function getFormData(){
     // console.log(JSON.stringify(obj));
     xhr.onload = function(e){
         let obj = JSON.parse(e.currentTarget.response);
-        let html = `<div class="items">
-        <span><input type="checkbox" name="task" value="${obj.description}" ></span>
+        let html = `<div class="items" id="${obj._id}">
+        <span><input type="checkbox" name="task" value="${obj._id}" ></span>
         <div class="description">${obj.description}</div>
         <div class="duedate">${obj.dueDate}</div>
         <div class="category">${obj.category}</div>
@@ -150,4 +150,36 @@ function getFormData(){
     xhr.open('POST','/create-item',true);
     xhr.setRequestHeader('Content-type','application/json');
     xhr.send(JSON.stringify(obj));
+}
+
+function sendOptions() {
+  var xhr = new XMLHttpRequest();
+  var checkedBoxes = document.getElementsByName('task');
+  console.log("checkboxes" , checkedBoxes);
+  var obj = [];
+  for(let checkbox of checkedBoxes){
+    if(checkbox.checked){
+      obj.push(checkbox.getAttribute('value'));
+      // console.log(checkbox);
+    }
+  }
+
+  xhr.onload = function(e){
+    console.log(xhr.responseText);
+    let array = JSON.parse( xhr.responseText ).array;
+    // for (let id of array ){
+    //   console.log(id);
+    //   let item = document.getElementById(id);
+    //   item.remove();
+    // }
+    for (let i = 0 ; i < array.length ; i++ ){
+      let item  = document.getElementById(array[i]);
+      console.log(item);
+      item.remove();
+    }
+  }
+
+  xhr.open('DELETE','/',true);
+  xhr.setRequestHeader('Content-type','application/json');
+  xhr.send(JSON.stringify(obj));
 }

@@ -1,15 +1,17 @@
 
 const Todo = require("../models/tasks");
-
+const db = require("../config/mongoose");
 
 module.exports.home = function(req, res){
 
     // return res.render('home',tasks);
+    // return res.render('home');
     Todo.find({},function(error , result ){
         if(error){
             console.log("error in fetching document from database ");
             return res.send('<h1>error in finding records<h1>');
         }
+        console.log(result);
         return res.render('home',{
             tasks : result 
         })
@@ -17,7 +19,7 @@ module.exports.home = function(req, res){
 
 };
 
-// const cat = ['','Personal','School','Office'];
+const cat = ['','Personal','School','Office'];
 // tasks = [ 
 //     {
 //         description: "h",
@@ -25,7 +27,6 @@ module.exports.home = function(req, res){
 //         category: cat[1]
 //     }
 // ];
-
 
 module.exports.createTodo = function(req,res){
     console.log("data posted");
@@ -41,8 +42,24 @@ module.exports.createTodo = function(req,res){
             return res.send('<h1>error in creating object</h1>');
         }
         console.log("********",newTask);
-        return res.send(obj);
+        return res.send(newTask);
     });
-    // tasks.push(obj);
-    // res.send(obj);
 };
+
+
+module.exports.deleteTodo = function(req,res){
+    console.log("delete method called ");
+    console.log(req.body);
+    let arr = req.body ;
+    for (let [index, element] of arr.entries() ){
+        Todo.findByIdAndDelete(element,function(error){
+            if(error){
+                arr.splice(index,1);
+                return ;
+            }
+        });
+    }
+    return res.send({
+        "array": arr
+    });
+}

@@ -79,8 +79,8 @@
                 <span>Tasks</span>
             </div>
             <% for ( let [i,v] of tasks.entries() ) { %>
-                <div class="items">
-                    <span><input type="checkbox" name="task" value="<%= i %>" ></span>
+                <div class="items" id="<%= v._id %>" >
+                    <span><input type="checkbox" name="task" value="<%= v._id  %>" ></span>
                     <% console.log(v) %>
                     <div class="description"><%= v.description %></div>
                     <div class="duedate"><%= v.dueDate %></div>
